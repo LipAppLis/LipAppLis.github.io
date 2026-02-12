@@ -130,3 +130,70 @@ footer { margin-top: 30px; font-size: 12px; color: var(--text-dim); }
     .bento-grid { grid-template-columns: 1fr; }
     .glass-card { padding: 30px 20px; }
 }
+
+/* СТИЛЬ МЕНЮ 2026 */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(5, 5, 5, 0.7); /* Полупрозрачный черный */
+    backdrop-filter: blur(15px);     /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+.logo { 
+    font-weight: 900; 
+    color: #007AFF; 
+    font-size: 22px; 
+    letter-spacing: -1px;
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 30px; 
+    margin: 0; 
+    padding: 0; 
+}
+
+.nav-links a { 
+    color: rgba(255, 255, 255, 0.8); 
+    text-decoration: none; 
+    font-size: 14px; 
+    font-weight: 600; 
+    transition: 0.3s;
+}
+
+.nav-links a:hover { 
+    color: #007AFF; 
+}
+
+.btn-nav {
+    background: #007AFF;
+    color: white !important;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.btn-nav:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.4);
+}
+
+/* Скрытие меню на очень маленьких экранах (опционально) */
+@media (max-width: 480px) {
+    .nav-links { display: none; } /* Оставляем только лого и кнопку заказать */
+}
