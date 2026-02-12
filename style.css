@@ -1,73 +1,132 @@
+/* Переменные для легкой настройки цветов */
 :root {
-    --bg: #050505;
-    --accent: #007AFF;
-    --glass: rgba(255, 255, 255, 0.03);
+    --bg-color: #030303;
+    --accent-color: #007AFF; /* Фирменный синий Apple */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-dim: #888888;
 }
 
+* { box-sizing: border-box; }
+
 body {
-    background: var(--bg);
-    color: white;
-    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* Анимированный фон */
+/* Фоновое анимированное свечение */
 .glow {
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-    filter: blur(120px);
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    filter: blur(140px);
     opacity: 0.15;
     z-index: -1;
-    animation: pulse 8s infinite alternate;
+    transform: translate(-50%, -50%);
+    animation: moveGlow 15s infinite alternate;
 }
 
-@keyframes pulse {
-    from { transform: translate(-10%, -10%) scale(1); }
-    to { transform: translate(10%, 10%) scale(1.1); }
+@keyframes moveGlow {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-30%, -40%) scale(1.2); }
 }
 
+.container { padding: 20px; width: 100%; max-width: 600px; }
+
+/* Эффект стекла для карточки */
 .glass-card {
-    background: var(--glass);
+    background: var(--glass-bg);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 50px;
+    border: 1px solid var(--glass-border);
     border-radius: 40px;
-    text-align: center;
-    max-width: 450px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    /* Анимация появления */
-    animation: slideUp 1s ease-out;
+    padding: 40px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.2s ease-out;
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(30px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-h1 { font-size: 2.5rem; letter-spacing: -1px; margin-bottom: 10px; }
-.accent { color: var(--accent); text-shadow: 0 0 20px rgba(0, 122, 255, 0.4); }
-
-.main-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 16px 32px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 16px;
+/* Статус и мелкие детали */
+.status-row { display: flex; justify-content: space-between; margin-bottom: 30px; }
+.status-badge {
+    background: rgba(0, 255, 100, 0.1);
+    color: #00ff64;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.main-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+.accent { color: var(--accent-color); }
+h1 { font-size: 32px; margin: 0 0 15px; letter-spacing: -1px; }
+.subtitle { color: var(--text-dim); font-size: 16px; line-height: 1.5; }
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.bento-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    padding: 20px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.bento-item:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.07); }
+.bento-item h3 { font-size: 14px; color: var(--text-dim); margin: 0 0 10px; }
+.tags span {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+/* Кнопка */
+.main-button {
+    display: block;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    padding: 18px;
+    border-radius: 18px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.main-button:hover { background: var(--accent-color); color: #fff; transform: translateY(-2px); }
+
+footer { margin-top: 30px; font-size: 12px; color: var(--text-dim); }
+
+/* Адаптив для телефонов */
+@media (max-width: 480px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .glass-card { padding: 30px 20px; }
 }
