@@ -5,6 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог | СанТехЛюк</title>
     <style>
+       .main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 70px;
+    background: rgba(10, 10, 10, 0.8); /* Темный фон */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+.logo { font-weight: 900; color: #007AFF; font-size: 20px; }
+
+.nav-links { display: flex; list-style: none; gap: 20px; margin: 0; padding: 0; }
+
+.nav-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 14px; 
+    font-weight: 600; 
+}
+
+.btn-nav {
+    background: #007AFF;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
         /* Базовый сброс, чтобы не было белого фона */
         body { background: #050505; color: white; font-family: sans-serif; margin: 0; padding: 20px; }
         .container { max-width: 1200px; margin: 0 auto; }
@@ -30,6 +67,19 @@
     </style>
 </head>
 <body>
+    <!-- ШАПКА САЙТА -->
+<nav class="main-nav">
+    <div class="logo">SANTEHLYK</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="https://t.me">Контакты</a></li>
+    </ul>
+    <a href="https://t.me" class="btn-nav">Заказать</a>
+</nav>
+
+<!-- Отступ, чтобы контент каталога не залез под меню -->
+<div style="height: 80px;"></div>
     <div class="container">
         <a href="index.html" style="color: #888; text-decoration: none;">← Назад</a>
         <h1>Каталог СанТехЛюк</h1>
