@@ -3,26 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ТИТУЛ: Это то, что люди увидят в поиске Яндекса -->
-    <title>LipAppLis | Профессиональная веб-разработка 2026</title>
-    <meta name="description" content="LipAppLis — создание стильных и быстрых сайтов-визиток на чистом коде. Высокая производительность и современный дизайн.">
-    <meta name="keywords" content="LipAppLis, веб-разработка, сайт-визитка, создание сайтов, santehlyk">
+    <title>LipAppLis | Digital Portfolio 2026</title>
+    
+    <!-- ЗАПРЕТ ИНДЕКСАЦИИ (Яндекс тебя не увидит, пока ты не удалишь эту строку) -->
+    <meta name="robots" content="noindex, nofollow">
+
     <link rel="stylesheet" href="style.css">
+    <!-- Подключаем современный шрифт -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
+    <!-- Фоновое свечение -->
     <div class="glow"></div>
-    <main class="glass-card">
-        <span class="status-badge">Online Portfolio</span>
-        <h1>Привет, это <span class="accent">LipAppLis</span></h1>
-        <p>Сайт на чистом коде. Стиль, скорость и индексация на максимум.</p>
-        
-        <div class="bento-grid">
-            <div class="item"><h3>Проекты</h3><p>Скоро здесь будет жарко</p></div>
-            <div class="item"><h3>Стек</h3><p>HTML • CSS • JS</p></div>
-        </div>
 
-        <a href="#" class="main-button">Связаться со мной</a>
-    </main>
+    <div class="container">
+        <main class="glass-card">
+            <!-- Статус-бар -->
+            <div class="status-row">
+                <span class="status-badge">Work in Progress</span>
+                <span class="year">v.2026</span>
+            </div>
+
+            <!-- Главный контент -->
+            <header>
+                <h1>Привет, я <span class="accent">LipAppLis</span></h1>
+                <p class="subtitle">Создаю цифровые интерфейсы нового поколения на чистом коде.</p>
+            </header>
+
+            <!-- Сетка Bento (Твои блоки) -->
+            <div class="bento-grid">
+                <div class="bento-item main-project">
+                    <h3>Мой стек</h3>
+                    <div class="tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="bento-item secondary">
+                    <h3>Локация</h3>
+                    <p>Internet / Remote</p>
+                </div>
+                <div class="bento-item secondary">
+                    <h3>Опыт</h3>
+                    <p>Web Dev</p>
+                </div>
+            </div>
+
+            <!-- Подвал -->
+            <footer>
+                <p>© 2026 LipAppLis. Все права защищены.</p>
+            </footer>
+        </main>
+    </div>
 </body>
-
 </html>
